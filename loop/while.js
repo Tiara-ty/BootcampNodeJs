@@ -1,6 +1,6 @@
 
 
-const ulang  = (data) => { 
+const ulang  = () => { 
     var text = "";
     var i = 0;
     while (i < 5) {
@@ -10,7 +10,7 @@ const ulang  = (data) => {
 return text
 }
 
-const dowhile = (data) => {
+const dowhile = () => {
     var result = "";
     var i = 0;
     
