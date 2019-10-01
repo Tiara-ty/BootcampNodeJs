@@ -31,7 +31,7 @@ router.post ("/", (req,res) => {
 
 router.get ("/", async (req,res) => {
     let hasil = await BookModel.find({}).exec()
-
+    
     return res.send ({
         status : "success",
         hasil,
