@@ -5,7 +5,7 @@
  const mongoose = require("mongoose")
  const Schema = mongoose.Schema
 
- let userSchema = new Schema ({
+ let memberSchema = new Schema ({
      no_anggota : Number,
      name : String,
      phone : Number,
@@ -23,6 +23,6 @@
      }
  })
 
- let Member = mongoose.model("Member", userSchema)
+ let Member = mongoose.model("Member", memberSchema)
 
  module.exports = Member
