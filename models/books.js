@@ -12,6 +12,7 @@
          type : Number,
          default : null
      },
+     author : String,
 
      created_at : {
          type : Date,

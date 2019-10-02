@@ -2,13 +2,23 @@ const express = require (`express`)
 const router = express.Router()
 // const {create, getAll} = require("../actions/books")
 const BookModel = require("../models/books")
-// const {isString} = require("lodash")
+const {isInteger} = require("lodash")
+const User = require("../models/user")
 
 router.post ("/", (req,res) => {
-    let {title, description} = req.body 
+    let { title, description, price, author } = req.body
+    price = parseInt(price)
+    console.log(`Value of price ${price}`)
+
+    if(isInteger(price) === false) {
+        return "Wrong type of `price`"
+    }
+
     var insert_data = {
         title,
-        description
+        description,
+        price,
+        author
     }
 
     let data = new BookModel(insert_data)
@@ -22,31 +32,22 @@ router.post ("/", (req,res) => {
 
 })
 
-//  const get = async() => {
-
-//     let data = await BookModel.find({}).exec()
-
-//     return data
-//     }
 
 router.get ("/", async (req,res) => {
-    let hasil = await BookModel.find({}).exec()
-    
-    return res.send ({
-        status : "success",
-        hasil,
-        message : "List book"
-    })
+    let query = await BookModel.find({})
+        .populate([
+            {
+                path: 'author',
+                model: User
+            }
+        ]).exec()
 
-})
-
-router.get("/detail", async (req,res) => {
-    let query = await BookModel.find({title : `aku`})
-    return res.send ({
-        status : "success",
+    return res.send({
+        status: "success",
         query,
-        message : "Didapatkan"
+        message: "Get all book data"
     })
+
 })
 
 module.exports =
