@@ -91,7 +91,7 @@ router.delete("/:id", async (req, res) => {
         return res.status(200).json({
             status: "success",
             data,
-            message: "User data deleted successfully!"
+            message: "Member sukses di hapus!"
         })
     } catch(err) {
         return res.status(400).json({
