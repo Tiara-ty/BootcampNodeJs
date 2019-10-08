@@ -81,11 +81,29 @@ const destroy = async (id) => {
     }
 }
 
+const search = async (name) => {
+    try {
+        let query = await User.find({name : "ty"}).exec()
+        let data = query.map((v, i) => {
+            return {
+                name: v.name,
+                email: v.email,
+                phone: v.phone
+            }
+        })
+
+        return data
+    } catch(err) {
+        throw err
+    }
+}
+
 module.exports = {
     create,
     getAll,
     getDetail,
     update,
-    destroy
+    destroy,
+    search
 }
 

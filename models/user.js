@@ -9,6 +9,7 @@
      name : String,
      email : String,
      phone : Number,
+     password: String,
 
      created_at : {
          type : Date,

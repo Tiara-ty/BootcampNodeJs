@@ -28,9 +28,29 @@ class Shop {
         }
     }
 
+    static async update() {
+        try {
+            let data =  await ShopModel.findByIdAndUpdate({}).exec()
+            return data
+        }catch (err){
+            throw err
+        }
+    }
+
     hello() {
         return 'Hello Shop!'
     }
+
+    static async search() {
+        try {
+            let data = await ShopModel.find({name : "mati 2"}).exec()
+
+            return data
+        } catch(err) {
+            throw err
+        }
+    }
+
 }
 
 module.exports = Shop

@@ -101,4 +101,21 @@ router.delete("/:id", async (req, res) => {
     }
 })
 
+router.get ("/search",async (req,res) => {
+    try {
+        let data = await search()
+
+        return res.send({
+            status : "success",
+            data,
+            message : "Get all user data"
+        })
+    } catch (err){
+        return res.status (400).json ({
+            status : "error",
+            message : err.message
+        })
+    }
+})
+
 module.exports = router
