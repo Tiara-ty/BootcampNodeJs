@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
+const mongoosePaginate = require("mongoose-paginate")
 
 let shopSchema = new Schema({
     name: String,
@@ -14,7 +15,12 @@ let shopSchema = new Schema({
         default: Date.now()
     }
 })
-
+shopSchema.plugin(mongoosePaginate)
+shopSchema.virtual('user', {
+    localField: 'author',
+    foreignField: '_id',
+    justOnce: false
+})
 let Shop = mongoose.model("Shop", shopSchema)
 
 module.exports = Shop
