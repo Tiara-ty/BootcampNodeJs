@@ -8,7 +8,12 @@ class getAll {
 
     async exec() {
         try{
-            let query = await Book.find({}).exec()
+            let query = await Book.find({}).populate([
+                {
+                    path: 'author',
+                    model: User
+                }
+            ]).exec()
             return query
         }catch(err){
             throw err
