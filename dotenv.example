@@ -1,0 +1,4 @@
+HOST=mongodb://localhost:27017/database1
+PORT=3300
+
+JWT_SECRET = test
