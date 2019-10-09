@@ -10,7 +10,7 @@ class UpdateBook{
     }
 
    
-    async exec() {
+    async update() {
         try {
             let data = {
                 title : this.title,
@@ -20,7 +20,7 @@ class UpdateBook{
             }
             let query = await Book.findOneAndUpdate({
                 _id: this.id,
-            }, data ).exec()
+            }, data, {new : true}).exec()
 
             return query
         } catch(err) {

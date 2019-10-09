@@ -2,19 +2,11 @@ const Book = require("../../models/books")
 const {isInteger} = require("lodash")
 
 class CreateBook {
-    // constructor(req) {
-    //     this.title = req.body.title,
-    //     this.description = req.body.description,
-    //     this.price = req.body.price,
-    //     this.author = req.body.author
-    // }
-
     constructor(req) {
-        this.title,description,price,author = req.body
-        price = parseInt(price)
-        if(isInteger(price) === false) {
-            return "Wrong type of `price`"
-        }
+        this.title = req.body.title,
+        this.description = req.body.description,
+        this.price = req.body.price,
+        this.author = req.body.author
     }
     async exec() {
         try {

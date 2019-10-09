@@ -1,26 +1,19 @@
 const Book = require("../../models/books")
 const User = require("../../models/user")
 
-class ShowBook {
-    constructor(id) {
-        this.id = id
+class getAll {
+    constructor() {
+        
     }
 
     async exec() {
-        try {
-            await Book.find({})
-        .populate([
-            {
-                path: 'author',
-                model: User
-            }
-        ]).exec()
-
+        try{
+            let query = await Book.find({}).exec()
             return query
-        } catch(err) {
+        }catch(err){
             throw err
         }
     }
 }
 
-module.exports = ShowBook
+module.exports = getAll

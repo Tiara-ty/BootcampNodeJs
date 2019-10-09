@@ -1,13 +1,13 @@
-const Book = require("../../models/books")
+const user = require("../../models/user")
 
-class DeleteBook {
+class ShowDetailUser {
     constructor(id) {
         this.id = id
     }
 
     async exec() {
         try {
-            let query = await Book.findOneAndDelete({
+            let query = await user.findOne({
                 _id: this.id
             }).exec()
 
@@ -18,4 +18,4 @@ class DeleteBook {
     }
 }
 
-module.exports = DeleteBook
+module.exports = ShowDetailUser

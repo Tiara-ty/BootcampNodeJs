@@ -20,7 +20,7 @@ class UpdateUser {
             }
             let query = await User.findOneAndUpdate({
                 _id: this.id,
-            }, data ).exec()
+            }, data, {new : true } ).exec()
 
             return query
         } catch(err) {
