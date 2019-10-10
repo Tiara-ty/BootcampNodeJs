@@ -17,11 +17,11 @@ router.get("/", async (req, res, next) => {
         }
 
         if (email) {
-            params.description = description
+            params.email = email
         }
 
         if (phone) {
-            params.owner = owner
+            params.phone = phone
         }
 
         let data = await new ShowUser(params).getAll()

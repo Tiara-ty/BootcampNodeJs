@@ -2,3 +2,6 @@ HOST=mongodb://localhost:27017/database1
 PORT=3300
 
 JWT_SECRET = test
+
+EMAIL_USERNAME= tiararah
+EMAIL_PASSWORD= ty1001trp
